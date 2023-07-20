@@ -11,7 +11,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   const { parent_platforms } = game;
   return (
-    <Card borderRadius={10} overflow={"hidden"}>
+    <Card width={"250px"} borderRadius={10} overflow={"hidden"}>
       <Image src={optimizeImageUrl(game.background_image)}></Image>
       <CardBody>
         <Heading fontSize="2xl"> {game.name}</Heading>

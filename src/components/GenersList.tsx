@@ -1,8 +1,21 @@
-import getGeneres from "../hooks/FetchGenresHook";
-import { HStack, List, ListItem, Image, Text, Spinner } from "@chakra-ui/react";
+import getGeneres, { Geners } from "../hooks/FetchGenresHook";
+import {
+  HStack,
+  List,
+  ListItem,
+  Image,
+  Text,
+  Spinner,
+  Button,
+} from "@chakra-ui/react";
 import optimizeImageUrl from "../services/optimize-image-url";
 
-const GenersList = () => {
+interface Props {
+  onGenreClick: (genre: Geners) => void;
+  selectedGenre: Geners | null;
+}
+
+const GenersList = ({ selectedGenre, onGenreClick }: Props) => {
   const { data, error, isLoading } = getGeneres();
   return (
     <>
@@ -16,9 +29,19 @@ const GenersList = () => {
                 boxSize={8}
                 borderRadius={8}
               ></Image>
-              <Text fontSize={"md"} key={genere.id}>
+              <Button
+                fontWeight={genere.id === selectedGenre?.id ? "bold" : "normal"}
+                whiteSpace="normal"
+                onClick={() => {
+                  onGenreClick(genere);
+                }}
+                fontSize={"md"}
+                textAlign="left"
+                key={genere.id}
+                variant="link"
+              >
                 {genere.name}
-              </Text>
+              </Button>
             </HStack>
           </ListItem>
         ))}

@@ -1,14 +1,14 @@
-import getGeneres, { Geners } from "../hooks/FetchGenresHook";
+import { Geners } from "../hooks/useGenres";
 import {
   HStack,
   List,
   ListItem,
   Image,
-  Text,
   Spinner,
   Button,
 } from "@chakra-ui/react";
 import optimizeImageUrl from "../services/optimize-image-url";
+import useGenres from "../hooks/useGenres";
 
 interface Props {
   onGenreClick: (genre: Geners) => void;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const GenersList = ({ selectedGenre, onGenreClick }: Props) => {
-  const { data, error, isLoading } = getGeneres();
+  const { data, error, isLoading } = useGenres();
   return (
     <>
       {isLoading && <Spinner></Spinner>}

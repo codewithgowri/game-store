@@ -1,6 +1,5 @@
-import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
-import React from "react";
-import { Game } from "../hooks/GetGamesHook";
+import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
+import { Game } from "../hooks/useGames";
 import PlatformIcons from "./PlatformIcons";
 import ScoreBadge from "./ScoreBadge";
 import optimizeImageUrl from "../services/optimize-image-url";

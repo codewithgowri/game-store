@@ -6,6 +6,7 @@ import {
   Image,
   Spinner,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import optimizeImageUrl from "../services/optimize-image-url";
 import useGenres from "../hooks/useGenres";
@@ -19,6 +20,9 @@ const GenersList = ({ selectedGenre, onGenreClick }: Props) => {
   const { data, error, isLoading } = useGenres();
   return (
     <>
+      <Heading fontSize="2xl" marginTop={9} marginBottom={3}>
+        Genres
+      </Heading>
       {isLoading && <Spinner></Spinner>}
       <List paddingY={"5px"}>
         {data.map((genere) => (
